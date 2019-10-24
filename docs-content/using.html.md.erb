@@ -1,31 +1,77 @@
 ---
-title: Using YOUR-PRODUCT-NAME
+title: Using Axway AMPLIFY APIM Service Broker to proxy Pivotal Platform apps
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to use YOUR-PRODUCT-NAME.
+This topic describes how to use Axway AMPLIFY APIM Service Broker to proxy Pivotal Platform apps. Developers can extend the value of Pivotal Platform by integrating the apps and services running on Pivotal Platform through Axway AMPLIFY™ API Management. The integration is implemented as a Pivotal Platform Service Broker. With this approach, customers can connect to an existing Axway API Management solution, or they can deploy Axway API Manager on their choice of infrastructure (on-premise or cloud) and integrate it with Pivotal Platform.
+</br></br>
+A high level architecture that is based on the [Pivotal Platform Fully-Brokered Service pattern](https://docs.pivotal.io/platform/application-service/2-7/services/route-services.html#fully-brokered) is shown on the following diagram
+</br></br>
+![Axway APIM Service Broker](./images/0.png)
+</br></br>
+The benefits of using the service broker pattern are described in the [overview section](./index.html.md.erb).
+</br></br>
+Before you can proxy an app, you need to [download/install](./index.html.md.erb) and [configure](./installing.html.md.erb) Axway AMPLIFY APIM Service Broker. When you're done, the Axway AMPLIFY APIM Service Broker will be available on Marketplace of Pivotal Apps Manager as show below
+</br></br>
+![Marketplace](./images/1.png)
+</br></br>
+##<a id='create instance'></a> Creating an instance of Axway AMPLIFY APIM Service Broker
 
-##<a id='using'></a> Using YOUR-PRODUCT-NAME
+To create an instance of Axway AMPLIFY APIM Service Broker, perform the following steps:
 
-**This topic should include any instructions for how to use the service or dashboard created by the tile.
-Give procedures for how to perform the different functions offered by your product and provide screenshots where necessary.**
+1. Click **Axway AMPLIFY APIM** in your Pivotal Platform Marketplace.
 
-Other topics that you should address in your documentation:
+1. Select one of the available plans and click the **SELECT THIS PLAN** button.</br></br>
+![Selecting a plan](./images/2.png)
 
-+ **Troubleshooting**---If you include a Troubleshooting section, follow the Symptom/Explanation format used in the
-  [Okta Troubleshooting](http://docs.pivotal.io/p-identity/okta/troubleshooting.html) topic.
+1. Give a unique name to your instance and select a space where this instance will be created, and click the **CREATE** button.</br></br>
+![Creating an instance](./images/3.png)
+Note: Don't select any app or route to bind in this step. You must do it later.
 
-+ **Disaster recovery**--How do you recover data from the tile after a disaster? How do you perform backups?
+##<a id='binding a route'></a> Binding a route to your app
 
-+ **Scalability**--How do you scale up the tile? How do you know when you need to scale up?
+When your instance is created, you need to bind a route to your app(s):
 
-+ **Monitoring**--How do you monitor the tile? Does the tile send events to the Loggregator Firehose?
+1. Click the name of your Service Broker instance.</br></br>
+![Selecting an instance](./images/4.png)
 
-+ **Auditing**--Can PCF operators use the standard Accounting and Usage reports?
+1. Click the **BIND ROUTE** button.</br></br>
+![Bind a route](./images/5.png)
 
-+ **Security**--How is this tile secured? How is the data secured?
+1. Select the **Select a route to bind** radio button and pick your app in the drop down list.</br></br>
+![Configure your route binding](./images/6.png)
 
-You can create separate pages for each of these topics or group them in one page about administering or maintaining the tile.
+1. Open the **ADVANCED OPTIONS** section and provide additional parameters. For example,
 
+     ```bash
+       {
+        "apiname": "pcfgreeting",
+        "type": "swagger",
+        "uri": "/api/v3/swagger.json"
+       }
+     ```
+
+      The parameter *apiName* is optional. If apiName is not specified, Service broker fetch the API Name from swagger or WSDL. Possible values of *type* parameters are *wsdl* and *swagger* The URI value will be context name or Fully qualified Swagger / WSDL URL, for example - greeting-app-timely-llama.apps.cf-app.com**/api/v3/swagger.json**. If context name is provided as input, the service broker reads the host name from Cloud Foundry Application.
+
+1. Click the **BIND** button. You should see a new route bound under your Service Broker instance.</br></br>
+![Bound route](./images/7.png)
+
+1. Now you should see a new API registered in your Axway AMPLIFY API Manager.</br></br>
+![Created API](./images/8.png)</br></br>
+   You can further configure this API (security, throttling, etc.) per your requirements.
+
+##<a id='unbinding a route'></a> Unbinding a route to your app
+
+To unbind a route to a Pivotal Platform app:
+
+1. Unpublish an associated API in Axway AMPLIFY API Manager.
+
+1. Navigate to the **Services** section of Pivotal Apps Manager and click the name of your Service Broker instance.
+
+1. Click the **x** button next to your bound route.
+![Bound route](./images/11.png)
+
+1. Click **UNBIND** in a pop-up window.
+![Bound route](./images/10.png)

@@ -1,5 +1,5 @@
 ---
-title: YOUR-PRODUCT-NAME (Beta)
+title: Axway AMPLIFY APIM Service Broker for Pivotal Platform (Beta)
 owner: Partners
 ---
 
@@ -8,50 +8,39 @@ owner: Partners
 **If this product is in beta, keep and edit the warning note below.**
 <p class="note warning">
 <strong>Warning: </strong>
-The PRODUCT-NAME for PCF tile is currently in beta and is intended for evaluation and test purposes only.
-Do not use this product in a PCF production environment.
+The Axway AMPLIFY APIM Service Broker for Pivotal Platform tile is currently in beta and is intended for evaluation and test purposes only.
+Do not use this product in a Pivotal Platform production environment.
 </p>
 
-**This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does,
-whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
+**This topic begins with a brief description of what the product tile (e.g. Axway AMPLIFY APIM Service Broker for Pivotal Platform) does, whereas the Overview section below describes what the service itself (e.g. Axway APIM) does. See below for an example.**
 
-This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service
-Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
+This documentation describes the Axway AMPLIFY APIM Service Broker for Pivotal Platform. It enables developers to manage APIs for their Pivotal Platform applications through the API Manager console.
 
 **Note**: This description appears under **OVERVIEW** in the tile's listing on
 [Pivotal Network](http://network.pivotal.io).
 
 ## <a id='overview'></a>Overview
 
-**The overview describes the service that your product offers to PCF developers.
-Make sure to overview the features of the integration.
-Don't focus only on the overview of your product that is being integrated.
-See below for an example.**
+The Axway AMPLIFY APIM Service Broker for Pivotal Platform registers a service broker with Pivotal Platform and exposes its service plans on the Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI) and bind them to their apps.
 
-The Apigee Edge Service Broker for PCF registers a service broker with PCF and exposes its service plans on the
-Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command
-Line Interface (cf CLI) and bind them to their apps.
+Creating an Axway AMPLIFY APIM Service Broker for Pivotal Platform service instance and binding it to a Pivotal Platform application creates an API Manager front end API that handles requests for the application. This lets developers use the API Manager UI to manage API security, polices enforcement and provide access control to consumers for Pivotal Platform application
 
-Creating an Apigee Edge for PCF service instance and binding it to an app creates an Apigee Edge API proxy that
-handles requests for the app. This lets developers use the Apigee Edge management console to manage API request
-handling between clients and the app.
 
 **Note**: This overview appears under **OVERVIEW**, combined with the description above in the tile's listing on
 [Pivotal Network](http://network.pivotal.io).
 
 ## <a id='features'></a>Key Features
 
-**Note**: This feature list appears under **FEATURES** in the tile's listing on
-[Pivotal Network](http://network.pivotal.io).
-Make sure you list the key features of the tile (the integration).
-We cannot accept a list of the key features of your product that we are integrating.
+Axway AMPLIFY APIM Service Broker includes the following key features:
 
-YOUR-PRODUCT-NAME includes the following key features:
-
-* Feature one
-* Feature two
-* Feature three
-
+* Robust API Security
+* A single-entry point to access Pivotal Platform applications
+* Policy enforcement
+* Unified API catalog
+* API rate limiting
+* Message mediation
+* Authorization based on keys or scopes
+* API Analytics
 
 
 ## <a id="snapshot"></a>Product Snapshot
@@ -63,23 +52,23 @@ The following table provides version and version-support information about PRODU
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>vYOUR-VERSION-NUMBER</td>
+        <td>v1.1.8</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2019)</td>
+        <td>July 1, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>YOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+        <td>Axway APIM v7.6.2 and v7.7</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>YOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. 2.2, 2.3, and 2.4)</td>
+        <td>2.4.x, 2.5.x, 2.6x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Application Service version(s)</td>
-        <td>YOUR-COMPATIBLE-PIVOTAL-APPLICATION-SERVICE-VERSION (Ex. 2.2, 2.3, and 2.4)</td>
+        <td>2.4.x, 2.5.x, 2.6x</td>
     </tr>
     <tr>
        <td>BOSH stemcell version</td>
@@ -87,22 +76,24 @@ The following table provides version and version-support information about PRODU
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
+        <td>AWS, Azure, GCP, and vSphere</td>
     </tr>
 </table>
 
 
 ## <a id="reqs"></a>Requirements
 
-**Provide any general or specific requirements, prerequisites, or dependencies here.
-A general requirement might be something like, "An AppDynamics account."
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
+Axway AMPLIFY APIM Service Broker has the following requirements:
 
-YOUR-PRODUCT-NAME has the following requirements:
++ Install  Axway AMPLIFY API Management
++ Configure polices for Pivotal Platform
 
-+ PREREQUISITE-1
+## <a id='prereqs'></a> Prerequisites
 
-+ PREREQUISITE-2
+* API Administrator account to configure Service broker.
+* A Pivotal Platform Elastic Runtime deployment with Route Services enabled
+* Access to Cloud Controller REST APIs
+
 
 ## <a id="limitations"></a>Limitations
 
@@ -111,8 +102,8 @@ YOUR-PRODUCT-NAME has the following requirements:
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about an issue, please email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) or send an email to YOUR-SUPPORT-EMAIL.
+[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) or send an email to [Axway Support](mailto:support@axway.com).
 
 ## <a id='license'></a>License
 
-**List any license information here.**
+For license request, please send an email to [Axway Support](mailto:support@axway.com).
